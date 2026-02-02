@@ -1,9 +1,10 @@
 import React from 'react'
-import { BrowserRouter , createBrowserRouter, createRoutesFromElements, HashRouter, Route, RouterProvider, Routes} from 'react-router-dom'
+import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom'
 import Home from '../pages/home'
 import About from '../pages/about'  
 import Navbar from '../components/navbar'
 import { Outlet } from 'react-router-dom';
+import ShoppingCart from '../components/ShoppingCart';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -11,6 +12,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
+      <Route path="shopping-cart" element={<ShoppingCart />} />
     </Route>
   )
 )
