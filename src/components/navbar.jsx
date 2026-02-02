@@ -11,6 +11,7 @@ const Navbar = props => {
                         <li><NavLink to="/about" className={({isActive}) =>  `${isActive ? 'focus:text-red-300' : ''}`}>About</NavLink></li>
                         <li><NavLink to="/shopping-cart" className={({isActive}) =>  `${isActive ? 'focus:text-red-300' : ''}`}>Shopping Cart</NavLink></li>
                         <li><NavLink to="/dashboard" className={({isActive}) =>  `${isActive ? 'focus:text-red-300' : ''}`}>Dashboard</NavLink></li>
+                        <li><NavLink to="/post/1" className={({isActive}) =>  `${isActive ? 'focus:text-red-300' : ''}`}>Post</NavLink></li>
                     </ul>
                 </div>
             </nav>

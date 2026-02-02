@@ -10,6 +10,7 @@ import DashboardLayout from '../layout/dashboardlayout';
 import Dashboard from '../pages/dashboard';
 import Users from '../pages/users';
 import Posts from '../pages/posts';
+import Post from '../pages/post'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
       <Route path="shopping-cart" element={<ShoppingCart />} />
+      <Route path="post/:id" element={<Post />} />
       <Route path="*" element={<ErrorPage />} />
       <Route path="/dashboard" element={<DashboardLayout />} >
           <Route index element={<Dashboard />} />
