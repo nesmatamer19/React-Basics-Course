@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = props => {
     return (
@@ -7,10 +7,10 @@ const Navbar = props => {
                 <div className="flex justify-between items-center">
                     <div className="text-2xl font-bold">Navbar</div>
                     <ul className="flex space-x-6">
-                        <li><Link to="/" className="hover:text-gray-300">Home</Link></li>
-                        <li><Link to="/about" className="hover:text-gray-300">About</Link></li>
-                        <li><Link to="/shopping-cart" className="hover:text-gray-300">Shopping Cart</Link></li>
-                        <li><Link to="/dashboard" className="hover:text-gray-300">Dashboard</Link></li>
+                        <li><NavLink to="/" className={({isActive}) =>  `${isActive ? 'focus:text-red-300' : ''}`}>Home</NavLink></li>
+                        <li><NavLink to="/about" className={({isActive}) =>  `${isActive ? 'focus:text-red-300' : ''}`}>About</NavLink></li>
+                        <li><NavLink to="/shopping-cart" className={({isActive}) =>  `${isActive ? 'focus:text-red-300' : ''}`}>Shopping Cart</NavLink></li>
+                        <li><NavLink to="/dashboard" className={({isActive}) =>  `${isActive ? 'focus:text-red-300' : ''}`}>Dashboard</NavLink></li>
                     </ul>
                 </div>
             </nav>
