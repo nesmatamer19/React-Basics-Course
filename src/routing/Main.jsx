@@ -11,6 +11,10 @@ import Dashboard from '../pages/dashboard';
 import Users from '../pages/users';
 import Posts from '../pages/posts';
 import Post from '../pages/post'
+import Protected_route from '../components/protected_route';
+
+// const user = null;
+const user = {name: "ahmed"};
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,7 +25,12 @@ const router = createBrowserRouter(
       <Route path="shopping-cart" element={<ShoppingCart />} />
       <Route path="post/:id" element={<Post />} />
       <Route path="*" element={<ErrorPage />} />
-      <Route path="/dashboard" element={<DashboardLayout />} >
+      
+      <Route path="/dashboard" element={
+        <Protected_route user={user}>
+          <DashboardLayout />
+        </Protected_route>
+        } >
           <Route index element={<Dashboard />} />
           <Route path="users" element={<Users />} />
           <Route path="posts" element={<Posts />} />
