@@ -10,6 +10,7 @@ const Navbar = props => {
                         <li><Link to="/" className="hover:text-gray-300">Home</Link></li>
                         <li><Link to="/about" className="hover:text-gray-300">About</Link></li>
                         <li><Link to="/shopping-cart" className="hover:text-gray-300">Shopping Cart</Link></li>
+                        <li><Link to="/dashboard" className="hover:text-gray-300">Dashboard</Link></li>
                     </ul>
                 </div>
             </nav>
