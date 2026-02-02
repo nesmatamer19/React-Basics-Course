@@ -5,6 +5,7 @@ import About from '../pages/about'
 import Navbar from '../components/navbar'
 import { Outlet } from 'react-router-dom';
 import ShoppingCart from '../components/ShoppingCart';
+import ErrorPage from '../pages/error_page';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -13,6 +14,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
       <Route path="shopping-cart" element={<ShoppingCart />} />
+      <Route path="*" element={<ErrorPage />} />
     </Route>
   )
 )
