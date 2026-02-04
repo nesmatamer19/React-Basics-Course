@@ -17,15 +17,15 @@ class Menu extends Component {
           </thead>
 
           <tbody>
-            {this.props.items.map((item) => (
-              <tr key={item.id}>
-                <td>{item.name}</td>
-                <td>{item.price}</td>
+            {this.props.products.map((product) => (
+              <tr key={product.id}>
+                <td>{product.name}</td>
+                <td>{product.price}</td>
 
                 <td>
                   <i
-                    onClick={() => this.props.handleClick(item.id)}
-                    className={`fa-solid fa-cart-arrow-down cursor-pointer ${item.bool ? "text-black" : "text-gray-400"}`}
+                    onClick={() => this.props.handleClick(product.id)}
+                    className={`fa-solid fa-cart-arrow-down cursor-pointer ${product.bool ? "text-black" : "text-gray-400"}`}
                   ></i>
                 </td>
               </tr>

@@ -21,7 +21,7 @@ class RootLayout extends Component {
     return (
       <div>
          <Navbar
-          itemsCount={this.props.items.filter((p) => p.bool).length}
+          productsCount={this.props.products.filter((p) => p.bool).length}
         />
         <Outlet />
       </div>
@@ -31,16 +31,16 @@ class RootLayout extends Component {
 
 class Main extends Component {
   state = {
-      items: [
-        { id: 1, name: "burger", price: "$5.99" , bool: false},
-        { id: 2, name: "fries", price: "$2.99" , bool: false},
-        { id: 3, name: "cola", price: "$1.99" , bool: false},
+      products: [
+        { id: 1, name: "burger", count: 0, price: "$5.99" , bool: false},
+        { id: 2, name: "fries", count: 0, price: "$2.99" , bool: false},
+        { id: 3, name: "cola", count: 0, price: "$1.99" , bool: false},
       ],
     };
 
   handleReset = () => {
     //Clone
-    let products = [...this.state.items];
+    let products = [...this.state.products];
     //Edit
     products = products.map((p) => {
       p.count = 0;
@@ -50,10 +50,10 @@ class Main extends Component {
     this.setState({ products });
   };
 
-  IncrementHandler = (item) => {
+  IncrementHandler = (product) => {
     //Clone
-    const products = [...this.state.items];
-    const index = products.indexOf(item);
+    const products = [...this.state.products];
+    const index = products.indexOf(product);
     products[index] = { ...products[index] };
     //Edit
     products[index].count++;
@@ -61,10 +61,10 @@ class Main extends Component {
     this.setState({ products });
   };
 
-  handleDelete = (item) => {
+  handleDelete = (product) => {
     //Clone
-    const products = [...this.state.items];
-    const index = products.indexOf(item);
+    const products = [...this.state.products];
+    const index = products.indexOf(product);
     //Edit
     products.splice(index, 1);
     //Set State
@@ -73,10 +73,10 @@ class Main extends Component {
 
 
   handleClick = (id) => {
-    const items = this.state.items.map((item) => 
-     item.id === id ? {...item, bool: !item.bool} : item 
+    const products = this.state.products.map((product) => 
+     product.id === id ? {...product, bool: !product.bool} : product 
      );
-    this.setState({items: items});
+    this.setState({products: products});
   };
 
   render() {
@@ -86,28 +86,27 @@ class Main extends Component {
 
         <Route path="/" element={
             <RootLayout
-              items={this.state.items}
+              products={this.state.products}
               handleClick={this.handleClick}
             />
           }
         >
-            <Route
-              path="/cart"
-              render={(props) => (
-                <ShoppingCart
-                  items={this.state.items.filter((p) => p.bool)}
-                  onIncrement={this.IncrementHandler}
-                  onDelete={this.handleDelete}
-                  onReset={this.handleReset}
-                  {...props}
-                />
-              )}
-            />
+          <Route
+            path="/cart"
+            element={
+              <ShoppingCart
+                products={this.state.products.filter((p) => p.bool)}
+                onIncrement={this.IncrementHandler}
+                onDelete={this.handleDelete}
+                onReset={this.handleReset}
+              />
+            }
+          />
           <Route
             path="menu"
             element={
               <Menu
-                items={this.state.items}
+                products={this.state.products}
                 handleClick={this.handleClick}
               />
             }

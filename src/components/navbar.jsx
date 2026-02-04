@@ -6,7 +6,7 @@ const Navbar = props => {
             <nav className="bg-gray-500 text-white py-2 px-8">
                 <div className="flex justify-between items-center mt-3">
                     <ul className="flex space-x-6">
-                        <li><NavLink to="/shopping-cart" className={({isActive}) =>  `${isActive ? 'focus:text-blue-300 text-blue-300 no-underline decoration-none' : 'text-black no-underline decoration-none'}`}>Shopping Cart</NavLink></li>
+                        <li><NavLink to="/cart" className={({isActive}) =>  `${isActive ? 'focus:text-blue-300 text-blue-300 no-underline decoration-none' : 'text-black no-underline decoration-none'}`}>Shopping Cart</NavLink></li>
                         <li><NavLink to="/menu" className={({isActive}) =>  `${isActive ? 'focus:text-blue-300 text-blue-300 no-underline decoration-none' : 'text-black no-underline decoration-none'}`}>Menu</NavLink></li>
                         <li><NavLink to="/dashboard" className={({isActive}) =>  `${isActive ? 'focus:text-blue-300 text-blue-300 no-underline decoration-none' : 'text-black no-underline decoration-none'}`}>Dashboard</NavLink></li>
                     </ul>
