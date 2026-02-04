@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -20,7 +20,9 @@ class RootLayout extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+         <Navbar
+          itemsCount={this.props.items.filter((p) => p.bool).length}
+        />
         <Outlet />
       </div>
     );
@@ -35,7 +37,40 @@ class Main extends Component {
         { id: 3, name: "cola", price: "$1.99" , bool: false},
       ],
     };
-  
+
+  handleReset = () => {
+    //Clone
+    let products = [...this.state.items];
+    //Edit
+    products = products.map((p) => {
+      p.count = 0;
+      return p;
+    });
+    //Set state
+    this.setState({ products });
+  };
+
+  IncrementHandler = (item) => {
+    //Clone
+    const products = [...this.state.items];
+    const index = products.indexOf(item);
+    products[index] = { ...products[index] };
+    //Edit
+    products[index].count++;
+    //Set State
+    this.setState({ products });
+  };
+
+  handleDelete = (item) => {
+    //Clone
+    const products = [...this.state.items];
+    const index = products.indexOf(item);
+    //Edit
+    products.splice(index, 1);
+    //Set State
+    this.setState({ products });
+  };
+
 
   handleClick = (id) => {
     const items = this.state.items.map((item) => 
@@ -56,7 +91,18 @@ class Main extends Component {
             />
           }
         >
-          <Route path="shopping-cart" element={<ShoppingCart />} />
+            <Route
+              path="/cart"
+              render={(props) => (
+                <ShoppingCart
+                  items={this.state.items.filter((p) => p.bool)}
+                  onIncrement={this.IncrementHandler}
+                  onDelete={this.handleDelete}
+                  onReset={this.handleReset}
+                  {...props}
+                />
+              )}
+            />
           <Route
             path="menu"
             element={

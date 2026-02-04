@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = props => {
@@ -10,7 +10,7 @@ const Navbar = props => {
                         <li><NavLink to="/menu" className={({isActive}) =>  `${isActive ? 'focus:text-blue-300 text-blue-300 no-underline decoration-none' : 'text-black no-underline decoration-none'}`}>Menu</NavLink></li>
                         <li><NavLink to="/dashboard" className={({isActive}) =>  `${isActive ? 'focus:text-blue-300 text-blue-300 no-underline decoration-none' : 'text-black no-underline decoration-none'}`}>Dashboard</NavLink></li>
                     </ul>
-                    <i className="fa-solid fa-cart-arrow-down flex"></i>
+                    <i className="fa-solid fa-cart-arrow-down flex">{props.itemsCount}</i>
                 </div>
             </nav>
         );
