@@ -3,16 +3,14 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = props => {
     return (
-            <nav className="bg-black text-white py-4 px-8">
-                <div className="flex justify-between items-center">
-                    <div className="text-2xl font-bold">Navbar</div>
+            <nav className="bg-gray-500 text-white py-2 px-8">
+                <div className="flex justify-between items-center mt-3">
                     <ul className="flex space-x-6">
-                        <li><NavLink state= "666" to="/" className={({isActive}) =>  `${isActive ? 'focus:text-red-300' : ''}`}>Home</NavLink></li>
-                        <li><NavLink to="/about" className={({isActive}) =>  `${isActive ? 'focus:text-red-300' : ''}`}>About</NavLink></li>
-                        <li><NavLink to="/shopping-cart" className={({isActive}) =>  `${isActive ? 'focus:text-red-300' : ''}`}>Shopping Cart</NavLink></li>
-                        <li><NavLink to="/dashboard" className={({isActive}) =>  `${isActive ? 'focus:text-red-300' : ''}`}>Dashboard</NavLink></li>
-                        <li><NavLink to="/post/1" className={({isActive}) =>  `${isActive ? 'focus:text-red-300' : ''}`}>Post</NavLink></li>
+                        <li><NavLink to="/shopping-cart" className={({isActive}) =>  `${isActive ? 'focus:text-blue-300 text-blue-300 no-underline decoration-none' : 'text-black no-underline decoration-none'}`}>Shopping Cart</NavLink></li>
+                        <li><NavLink to="/menu" className={({isActive}) =>  `${isActive ? 'focus:text-blue-300 text-blue-300 no-underline decoration-none' : 'text-black no-underline decoration-none'}`}>Menu</NavLink></li>
+                        <li><NavLink to="/dashboard" className={({isActive}) =>  `${isActive ? 'focus:text-blue-300 text-blue-300 no-underline decoration-none' : 'text-black no-underline decoration-none'}`}>Dashboard</NavLink></li>
                     </ul>
+                    <i className="fa-solid fa-cart-arrow-down flex"></i>
                 </div>
             </nav>
         );
