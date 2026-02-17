@@ -39,6 +39,12 @@ class Main extends Component {
       ],
     };
 
+  componentDidMount() {
+     fetch('https://jsonplaceholder.typicode.com//posts')
+      .then(res => res.json())
+      .then(data => console.log(data))
+  }
+
   handleReset = () => {
     //Clone
     let products = [...this.state.products];
