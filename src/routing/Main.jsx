@@ -14,6 +14,7 @@ import Dashboard from "../pages/dashboard";
 import Protected_route from "../components/protected_route";
 import Menu from "../pages/menu";
 import Login from "../components/login";
+import axios from "axios";
 
 const user = { name: "ahmed" };
 
@@ -39,10 +40,10 @@ class Main extends Component {
       ],
     };
 
-  componentDidMount() {
-     fetch('https://jsonplaceholder.typicode.com//posts')
-      .then(res => res.json())
-      .then(data => console.log(data))
+  async componentDidMount() {
+   const {data} = await axios.get('https://jsonplaceholder.typicode.com//posts')
+   console.log(data)
+     
   }
 
   handleReset = () => {
