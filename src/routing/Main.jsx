@@ -33,17 +33,13 @@ class RootLayout extends Component {
 
 class Main extends Component {
   state = {
-      products: [
-        { id: 1, name: "burger", count: 0, price: "$5.99" , bool: false},
-        { id: 2, name: "fries", count: 0, price: "$2.99" , bool: false},
-        { id: 3, name: "cola", count: 0, price: "$1.99" , bool: false},
-      ],
+      products: []
     };
 
   async componentDidMount() {
-   const {data} = await axios.get('https://jsonplaceholder.typicode.com//posts')
-   console.log(data)
-     
+    //call backend
+    const { data } = await axios.get('http://localhost:5000/products');
+   this.setState({products: data})     
   }
 
   handleReset = () => {

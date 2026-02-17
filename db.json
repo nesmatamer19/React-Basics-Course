@@ -1,0 +1,9 @@
+{
+    "products": [
+      { "id": 1, "name": "burger", "count": 0, "price": "$5.99" , "bool": false},
+      { "id": 2, "name": "fries", "count": 0, "price": "$2.99" , "bool": false},
+      { "id": 3, "name": "cola", "count": 0, "price": "$1.99" , "bool": false},
+      { "id": 4, "name": "water", "count": 0, "price": "$4.99" , "bool": false}
+
+    ]
+  }
