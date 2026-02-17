@@ -9,6 +9,8 @@ const Navbar = props => {
                         <li><NavLink to="/cart" className={({isActive}) =>  `${isActive ? 'focus:text-blue-300 text-blue-300 no-underline decoration-none' : 'text-black no-underline decoration-none'}`}>Shopping Cart</NavLink></li>
                         <li><NavLink to="/menu" className={({isActive}) =>  `${isActive ? 'focus:text-blue-300 text-blue-300 no-underline decoration-none' : 'text-black no-underline decoration-none'}`}>Menu</NavLink></li>
                         <li><NavLink to="/dashboard" className={({isActive}) =>  `${isActive ? 'focus:text-blue-300 text-blue-300 no-underline decoration-none' : 'text-black no-underline decoration-none'}`}>Dashboard</NavLink></li>
+                        <li><NavLink to="/login" className={({isActive}) =>  `${isActive ? 'focus:text-blue-300 text-blue-300 no-underline decoration-none' : 'text-black no-underline decoration-none'}`}>Login</NavLink></li>
+
                     </ul>
                     <i className="fa-solid fa-cart-arrow-down flex">{props.itemsCount}</i>
                 </div>

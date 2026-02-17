@@ -13,6 +13,7 @@ import DashboardLayout from "../layout/dashboardlayout";
 import Dashboard from "../pages/dashboard";
 import Protected_route from "../components/protected_route";
 import Menu from "../pages/menu";
+import Login from "../components/login";
 
 const user = { name: "ahmed" };
 
@@ -91,6 +92,7 @@ class Main extends Component {
             />
           }
         >
+          <Route path="/login" element={<Login/>}/>
           <Route
             path="/cart"
             element={
