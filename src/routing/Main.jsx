@@ -16,6 +16,7 @@ import Menu from "../pages/menu";
 import Login from "../components/login";
 import axios from "axios";
 import Posts from "../components/posts";
+import Post from "../components/post";
 
 const user = { name: "ahmed" };
 
@@ -97,7 +98,7 @@ class Main extends Component {
           }
         >
           <Route path="/login" element={<Login/>}/>
-          <Route path="/posts" element={<Posts/>}/>
+          <Route path="/posts" element={<Post/>}/>
           <Route
             path="/cart"
             element={
