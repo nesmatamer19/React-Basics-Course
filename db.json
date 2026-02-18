@@ -1,13 +1,6 @@
 {
   "products": [
     {
-      "id": "86d1",
-      "name": "large pizza",
-      "price": "1.33",
-      "count": 0,
-      "isInCart": false
-    },
-    {
       "id": "9a35",
       "name": "sushi",
       "price": "1.33",

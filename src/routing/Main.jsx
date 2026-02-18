@@ -70,11 +70,18 @@ class Main extends Component {
   };
 
   handleDelete = async (product) => {
+    const oldproducts = [...this.state.products];
     //Clone
-    await axios.delete(`http://localhost:5000/products/${product.id}`);
-      // delete by id
-      const products = this.state.products.filter((p) => p.id !== product.id);
-      this.setState({ products });
+    // delete by id
+    const products = this.state.products.filter((p) => p.id !== product.id);
+    this.setState({ products });
+    try {
+      await axios.delete(`http://localhost:5000/products/${product.id}`);
+    } catch (error) {
+      alert("Error deleting product");
+      this.setState({ products: oldproducts });
+    }
+    
   };
 
 
