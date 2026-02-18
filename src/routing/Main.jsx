@@ -15,6 +15,7 @@ import Protected_route from "../components/protected_route";
 import Menu from "../pages/menu";
 import Login from "../components/login";
 import axios from "axios";
+import Posts from "../components/posts";
 
 const user = { name: "ahmed" };
 
@@ -96,6 +97,7 @@ class Main extends Component {
           }
         >
           <Route path="/login" element={<Login/>}/>
+          <Route path="/posts" element={<Posts/>}/>
           <Route
             path="/cart"
             element={
