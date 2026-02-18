@@ -10,13 +10,15 @@ import Navbar from "../components/navbar";
 import ShoppingCart from "../components/ShoppingCart";
 import ErrorPage from "../pages/error_page";
 import DashboardLayout from "../layout/dashboardlayout";
-import Dashboard from "../pages/dashboard";
+import Adduser  from "../pages/adduser";
 import Protected_route from "../components/protected_route";
 import Menu from "../pages/menu";
 import Login from "../components/login";
 import axios from "axios";
 import Posts from "../components/posts";
 import Post from "../components/post";
+import Data, { Dataloader } from "../pages/data";
+
 
 const user = { name: "ahmed" };
 
@@ -129,8 +131,34 @@ class Main extends Component {
               </Protected_route>
             }
           >
-            <Route index element={<Dashboard />} />
+            <Route index path="data" element={< Data />} loader={Dataloader} />
           </Route>
+
+          {/* Dashboard actions as separate protected pages so they render alone */}
+          <Route
+            path="/dashboard/add"
+            element={
+              <Protected_route user={user}>
+                <Adduser />
+              </Protected_route>
+            }
+          />
+          <Route
+            path="/dashboard/edit/:id"
+            element={
+              <Protected_route user={user}>
+                <Adduser />
+              </Protected_route>
+            }
+          />
+          <Route
+            path="/dashboard/delete/:id"
+            element={
+              <Protected_route user={user}>
+                <Adduser />
+              </Protected_route>
+            }
+          />
         </Route>
       )
     );
