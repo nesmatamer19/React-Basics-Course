@@ -1,9 +1,25 @@
 {
-    "products": [
-      { "id": 1, "name": "burger", "count": 0, "price": "$5.99" , "bool": false},
-      { "id": 2, "name": "fries", "count": 0, "price": "$2.99" , "bool": false},
-      { "id": 3, "name": "cola", "count": 0, "price": "$1.99" , "bool": false},
-      { "id": 4, "name": "water", "count": 0, "price": "$4.99" , "bool": false}
-
-    ]
-  }
+  "products": [
+    {
+      "id": "86d1",
+      "name": "large pizza",
+      "price": "1.33",
+      "count": 0,
+      "isInCart": false
+    },
+    {
+      "id": "9a35",
+      "name": "sushi",
+      "price": "1.33",
+      "count": 0,
+      "isInCart": false
+    },
+    {
+      "id": "3868",
+      "name": "friesqq",
+      "price": "$2.99",
+      "count": 0,
+      "isInCart": false
+    }
+  ]
+}

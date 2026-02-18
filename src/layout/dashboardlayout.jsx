@@ -1,18 +1,7 @@
-import React, { useState , useEffect} from 'react'
+import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
 
-const DashboardLayout = () => {
-  const [products, setproducts] = useState([])
-
-   useEffect(() => {
-    const fetchproducts = async() =>{
-    const res = await fetch("http://localhost:5000/products");
-    const data = await res.json();
-    setproducts(data);
-    }
-
-    fetchproducts();
-   }, [])
+const DashboardLayout = ({ products = [], onDelete }) => {
 
   return (
     <div className="p-10">
@@ -40,9 +29,9 @@ const DashboardLayout = () => {
                   <Link to={`/dashboard/edit/${p.id}`} className="text-blue-500 hover:text-blue-700 mr-3">
                     <i className="fa-solid fa-pen-to-square"></i>
                   </Link>
-                  <Link to={`/dashboard/delete/${p.id}`} className="text-red-500 hover:text-red-700">
+                  <button onClick={() => onDelete(p)} className="text-red-500 hover:text-red-700">
                     <i className="fa-solid fa-trash"></i>
-                  </Link>
+                  </button>
                 </td>
               </tr>
             ))}

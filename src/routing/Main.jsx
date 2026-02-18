@@ -10,7 +10,7 @@ import Navbar from "../components/navbar";
 import ShoppingCart from "../components/ShoppingCart";
 import ErrorPage from "../pages/error_page";
 import DashboardLayout from "../layout/dashboardlayout";
-import Adduser  from "../pages/adduser";
+import Adduser  from "../pages/productform";
 import Protected_route from "../components/protected_route";
 import Menu from "../pages/menu";
 import Login from "../components/login";
@@ -69,14 +69,12 @@ class Main extends Component {
     this.setState({ products });
   };
 
-  handleDelete = (product) => {
+  handleDelete = async (product) => {
     //Clone
-    const products = [...this.state.products];
-    const index = products.indexOf(product);
-    //Edit
-    products.splice(index, 1);
-    //Set State
-    this.setState({ products });
+    await axios.delete(`http://localhost:5000/products/${product.id}`);
+      // delete by id
+      const products = this.state.products.filter((p) => p.id !== product.id);
+      this.setState({ products });
   };
 
 
@@ -127,7 +125,7 @@ class Main extends Component {
             path="/dashboard"
             element={
               <Protected_route user={user}>
-                <DashboardLayout />
+                <DashboardLayout products={this.state.products} onDelete={this.handleDelete} />
               </Protected_route>
             }
           >
