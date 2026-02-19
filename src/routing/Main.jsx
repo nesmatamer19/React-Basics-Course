@@ -18,6 +18,7 @@ import axios from "axios";
 import Posts from "../components/posts";
 import Post from "../components/post";
 import Data, { Dataloader } from "../pages/data";
+import Memocounter from "../components/memocounter";
 
 
 const user = { name: "ahmed" };
@@ -104,7 +105,7 @@ class Main extends Component {
             />
           }
         >
-          <Route path="/login" element={<Login/>}/>
+          <Route path="/login" element={<Memocounter/>}/>
           <Route path="/posts" element={<Post/>}/>
           <Route
             path="/cart"
